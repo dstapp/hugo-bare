@@ -1,0 +1,8 @@
+<article class="well" itemscope itemtype="http://schema.org/Blog">
+    <h2 itemprop="headline">
+        <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}{{ if .Draft }} (Draft){{ end }}</a>
+        <small><time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02. January 2006" }}</time></small>
+    </h2>
+
+    {{ .Summary }}
+</article>

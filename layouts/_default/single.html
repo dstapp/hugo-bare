@@ -1,0 +1,24 @@
+{{ partial "header.html" . }}
+
+{{ $baseurl := .Site.BaseURL }}
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+
+    <h1 itemprop="headline">{{ .Title }}</h1>
+    published on <time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02. January 2006" }}</time>
+    in category {{ with .Params.categories }}
+    {{ range . }}
+    <a href="{{ $baseurl }}categories/{{ . | urlize }}" title="Category {{ . }}">{{ . }}</a>
+    {{ end }}
+    {{ end }}, Tags: {{ with .Params.tags }}
+    {{ range . }}
+    <a href="{{ $baseurl }}tags/{{ . | urlize }}" title="Tag {{ . }}">{{ . }}</a>
+    {{ end }}
+    {{ end }}
+
+    {{ .Content }}
+
+</article>
+</main>
+
+{{ partial "footer.html" . }}
