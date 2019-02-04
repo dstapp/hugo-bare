@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="robots" content="index,follow">
+
+        <link rel="alternate" href="/index.xml" type="application/rss+xml" title="{{ .Site.Title }}">
+
+        <title>{{ $isHomePage := eq .Title .Site.Title }}{{ if $isHomePage }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+
+        <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+        <meta name="keywords" content="{{ range .Params.tags }}{{ . }} {{ end }}">
+        <meta name="date" content="{{ .Date }}">
+        <meta name="canonical" content="{{ .Permalink }}">
+
+        <meta property="og:title" content="{{ $isHomePage := eq .Title .Site.Title }}{{ if $isHomePage }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}">
+        <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="{{ .Site.Title }}" />
+        <meta property="article:published_time" content="{{ .Date }}" />
+        <meta property="article:modified_time" content="{{ .Date }}" />
+        <meta property="og:url" content="{{ .Permalink }}" />
+        {{ range .Params.tags }}<meta property="article:tag" content="{{ . }}" />{{ end }}
     </head>
     <body>
         <header>
+            <h1></h1>
             <nav>
                 <ul>
                     <li><a href="/">Blog</a></li>
