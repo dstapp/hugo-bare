@@ -1,6 +1,8 @@
 {{ partial "header.html" . }}
-  <h1 class="item--headline">{{ .Title }}</h1>
+
+  <h1>{{ .Title }}</h1>
   {{ range .Data.Pages }}
     {{ partial "list-item.html" . }}
   {{ end }}
+
 {{ partial "footer.html" . }}
