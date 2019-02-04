@@ -4,11 +4,12 @@
     </head>
     <body>
         <header>
-			<nav class="sidebar-nav">
-			  {{ range .Site.Menus.main }}
-				<a href="{{ .URL }}" title="{{ .Title }}">
-				  {{- .Name -}}
-				</a>
-			  {{ end }}
-			</nav>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="/">Blog</a></li>
+                    {{ range .Site.Menus.main }}
+                        <li><a href="{{ .URL }}" title="{{ .Title }}">{{- .Name -}}</a></li>
+                    {{ end }}
+                </ul>
+            </nav>
         </header>
